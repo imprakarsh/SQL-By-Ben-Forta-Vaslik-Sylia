@@ -60,3 +60,32 @@ WHERE
                     prod_id = 'BR01'
             )
     );
+    -- problem 4 : 
+SELECT
+    cust_id,
+    (
+        SELECT
+            SUM (item_price * quantity)
+        FROM
+            OrderItems
+        WHERE
+            orderItems.order_num = orders.order_num
+    ) AS total_ordered
+FROM
+    Orders
+ORDER BY
+    total_ordered DESC;
+
+-- problem 5 :
+SELECT
+    prod_name,
+    (
+        SELECT
+            SUM(quantity)
+        FROM
+            orderItems
+        WHERE
+            orderItems.prod_id = products.prod_id
+    )
+FROM
+    products;   
