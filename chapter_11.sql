@@ -88,4 +88,4 @@ SELECT
             orderItems.prod_id = products.prod_id
     )
 FROM
-    products;   
+    product;   
